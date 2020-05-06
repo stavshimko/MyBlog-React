@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+body {
+  font-family: sans-serif;
+  /*margin: 20px 20px 20px 20px;*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: steelblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.toolbar {
+  /*border: 0px solid lightgray;*/
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.toolbar .right-item {
+  float: right;
+  margin-right: 10px;
+}
+
+.toolbar .left-items a{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+.toolbar .left-items .vertical-line{
+  border-left: 2px solid black;
+  border-radius: 2px;
+
+}
+
+.main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /*justify-content: space-between;*/
 }
 
-.App-link {
-  color: #61dafb;
+.main .page-right {
+  /*border: 1px solid blue;*/
+  flex-basis: 25%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main .page-right .horizontal-line {
+  /*flex-grow: 1;*/
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+  margin: 10px 10px 10px 10px
+}
+
+.main .page-left {
+  /*border: 1px solid red;*/
+  flex-basis: 75%;
+  margin-right: 60px;
+}
+
+.main .page-left .post{
+  position: relative;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding-left: 5px;
+  margin: 2px 10px 10px 10px;
+  height: 200px;
+
+}
+
+.main .page-left .post .header-top {
+  position: absolute;
+  top: -15px;
+}
+.main .page-left .post p {
+  position: absolute;
+  margin-top: 40px;
+  padding-right: 110px;
+
+}
+
+.main .page-left .post .left-bottom{
+  position: absolute;
+  bottom: 5px;
+}
+
+.main .page-left .post .box{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  /*padding: 30px;*/
+  border: 2px solid black;
+
+}
+
+.cross {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 35%, grey 35%, grey 65%,  transparent 65%),
+  linear-gradient(-45deg, transparent 35%, grey 35%, grey 65%, transparent 65%);
+  /*padding: -20px;*/
+  /*transform: rotate(45deg);*/
+}
+
+
+
+.main .page-left h1{
+  margin-left: 10px;
 }
