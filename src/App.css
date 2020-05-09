@@ -30,11 +30,6 @@ a {
   display: inline-block;
   padding: 0px 5px 0px 5px;
 }
-/*.toolbar .left-items li{*/
-/*  !*padding-left: 5px;*!*/
-/*  !*padding-right: 5px;*!*/
-/*  margin-left: 5px;*/
-/*}*/
 
 .toolbar .left-items .vertical-line{
   border-left: 2px solid black;
@@ -48,31 +43,28 @@ a {
 }
 
 
-
-.main {
-  display: flex;
-  /*justify-content: space-between;*/
+aside {
+  float: right;
+  width: 25%;
+  padding: 0px 0px 0px 0px;
+}
+aside .latest,.popular{
+  margin: 0px 0px 0px 10px;
 }
 
-.main .page-right {
-  /*border: 1px solid blue;*/
-  flex-basis: 25%;
-}
-
-.main .page-right .horizontal-line {
+aside .horizontal-line {
   /*flex-grow: 1;*/
   border-bottom: 2px solid black;
   border-radius: 2px;
-  margin: 10px 10px 10px 10px
+  margin: 10px 10px 10px 10px;
 }
 
-.main .page-left {
-  /*border: 1px solid red;*/
-  flex-basis: 75%;
-  margin-right: 60px;
+section{
+  float: left;
+  width: 75%;
 }
 
-.main .page-left .post{
+.page-left .post{
   position: relative;
   border: 2px solid black;
   border-radius: 2px;
@@ -82,23 +74,24 @@ a {
 
 }
 
-.main .page-left .post .header-top {
+.page-left .post .header-top {
   position: absolute;
   top: -15px;
 }
-.main .page-left .post p {
+.page-left .post p {
   position: absolute;
   margin-top: 40px;
   padding-right: 110px;
+  /*padding-bottom: 2%;*/
 
 }
 
-.main .page-left .post .left-bottom{
+.page-left .post .left-bottom{
   position: absolute;
   bottom: 5px;
 }
 
-.main .page-left .post .box{
+.page-left .post .box{
   position: absolute;
   top: 2px;
   right: 2px;
@@ -108,6 +101,10 @@ a {
   /*padding: 30px;*/
   border: 2px solid black;
 
+}
+
+.page-left h1{
+  margin-left: 10px;
 }
 
 .cross {
@@ -121,6 +118,4 @@ a {
 
 
 
-.main .page-left h1{
-  margin-left: 10px;
-}
+
