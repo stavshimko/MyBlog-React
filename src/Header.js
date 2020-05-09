@@ -3,13 +3,13 @@ import React from "react";
 function Header() {
     return (
         <nav className="toolbar">
-            <span className="left-items">
-                <a href="">Home</a>
+            <ul className="left-items">
+                <li><a href="">Home</a></li>
                 <span className="vertical-line"></span>
-                <a href="">About Me</a>
+                <li><a href="">About Me</a></li>
                 <span className="vertical-line"></span>
-                <a href="">Contact Me</a>
-            </span>
+                <li><a href="">Contact Me</a></li>
+            </ul>
             <a href="" className="right-item">Login</a>
         </nav>
     );
