@@ -1,0 +1,31 @@
+
+.new-post {
+    margin: 70px 0px 0px 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    width: 400px;
+    height: 15px;
+    margin-bottom: 15px;
+    border: 2px solid black
+}
+
+#content {
+    width: 410px;
+    height: 150px;
+    border: 2px solid black
+}
+
+#save {
+    border: 2px black solid;
+    box-shadow: 1px 1px 2px black;
+    height: 20px;
+    margin-top: 10px;
+    width: 80px;
+    /*font-weight: 600;*/
+}
+
+
+

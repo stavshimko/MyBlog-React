@@ -1,0 +1,16 @@
+aside {
+    float: right;
+    width: 20%;
+    margin: 70px 0px 0px 10px;
+}
+aside .latest,.popular{
+    list-style: none;
+    padding: 0px 0px 0px 0px;
+}
+
+aside .horizontal-line {
+    /*flex-grow: 1;*/
+    border-bottom: 2px solid black;
+    border-radius: 2px;
+    margin: 10px 50px 10px 10px;
+}
