@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 function Post(props) {
     return (
-        <Link to="/post" onClick={props.click} id={props.id}>
+        <Link to={location => `/post/${props.id}`} onClick={props.click} id={props.id}>
             <article className="post" id={props.id}>
 
                     <img className="cross" src={props.image} id={props.id} alt="img"></img>

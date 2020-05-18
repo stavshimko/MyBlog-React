@@ -53,7 +53,7 @@ export default class App extends React.Component{
             "title": null,
             "content": null,
             "image": null,
-            "idPost": 1
+            "idPost": null
         }
 
     }
@@ -123,7 +123,7 @@ export default class App extends React.Component{
                        <Route path="/contact">
                            <ContactMe/>
                        </Route>
-                       <Route path="/post">
+                       <Route path="/post/:postId">
                            <PostPage post={this.postById(posts,this.state.idPost)}
                            />
                        </Route>

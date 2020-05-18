@@ -1,6 +1,7 @@
 import React from "react";
 
 function PostPage(props){
+
     console.log("run PostPage Page")
     // console.log(props.post)
     return (
