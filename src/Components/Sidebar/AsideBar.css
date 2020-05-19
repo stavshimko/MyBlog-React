@@ -1,7 +1,7 @@
 aside {
     float: right;
     width: 20%;
-    margin: 70px 0px 0px 10px;
+    margin: 70px 0px 0px 0px;
 }
 aside .latest,.popular{
     list-style: none;
