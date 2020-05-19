@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/MyBlogReact/static/css/main.378b10ae.chunk.css",
+    "main.css": "/MyBlogReact/static/css/main.0c07d19b.chunk.css",
     "main.js": "/MyBlogReact/static/js/main.95419789.chunk.js",
     "main.js.map": "/MyBlogReact/static/js/main.95419789.chunk.js.map",
     "runtime-main.js": "/MyBlogReact/static/js/runtime-main.2e7bc1fb.js",
@@ -8,16 +8,16 @@
     "static/js/2.89e4913f.chunk.js": "/MyBlogReact/static/js/2.89e4913f.chunk.js",
     "static/js/2.89e4913f.chunk.js.map": "/MyBlogReact/static/js/2.89e4913f.chunk.js.map",
     "index.html": "/MyBlogReact/index.html",
-    "precache-manifest.98c073c545119b0987d43d408e0f06f7.js": "/MyBlogReact/precache-manifest.98c073c545119b0987d43d408e0f06f7.js",
+    "precache-manifest.af6c7662270e0fea2b03c6dc5eb15cce.js": "/MyBlogReact/precache-manifest.af6c7662270e0fea2b03c6dc5eb15cce.js",
     "service-worker.js": "/MyBlogReact/service-worker.js",
-    "static/css/main.378b10ae.chunk.css.map": "/MyBlogReact/static/css/main.378b10ae.chunk.css.map",
+    "static/css/main.0c07d19b.chunk.css.map": "/MyBlogReact/static/css/main.0c07d19b.chunk.css.map",
     "static/js/2.89e4913f.chunk.js.LICENSE.txt": "/MyBlogReact/static/js/2.89e4913f.chunk.js.LICENSE.txt",
     "static/media/emptyImg.png": "/MyBlogReact/static/media/emptyImg.98288858.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2e7bc1fb.js",
     "static/js/2.89e4913f.chunk.js",
-    "static/css/main.378b10ae.chunk.css",
+    "static/css/main.0c07d19b.chunk.css",
     "static/js/main.95419789.chunk.js"
   ]
 }
