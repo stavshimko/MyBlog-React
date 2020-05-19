@@ -2,7 +2,7 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 
-function AboutMe() {
+function AboutMe(props) {
     console.log('run About Me')
     return (
             <div className="about-me">
