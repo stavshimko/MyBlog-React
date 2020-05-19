@@ -116,7 +116,7 @@ export default class App extends React.Component{
                 />
 
                    <Switch>
-                       <Redirect exact from="/" to="/home"></Redirect>
+                       {/*<Redirect exact from="/" to="/home"></Redirect>*/}
                        <Route path="/about">
                            <AboutMe/>
                        </Route>
@@ -132,7 +132,7 @@ export default class App extends React.Component{
                                     handleChange={this.handleChange}
                            />
                        </Route>
-                       <Route path="/home">
+                       <Route path="/">
                            <HomePage posts={posts}
                                      latest={this.state.latest}
                                      popular={this.state.popular}
