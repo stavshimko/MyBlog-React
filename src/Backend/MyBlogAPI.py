@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify,json
-from flask_cors import CORS
 import mysql.connector as mysql
 
 db = mysql.connect(
@@ -11,7 +10,6 @@ db = mysql.connect(
 # print(db)
 
 app = Flask(__name__)
-CORS(app)
 
 @app.route('/posts/<id>', methods=['GET'])
 def get_post_by_id(id):
