@@ -1,5 +1,5 @@
 import React from "react";
-import Posts from "./Post/Post";
+import Posts from "./Post/Posts";
 
 
 function MainSection(props) {
@@ -7,7 +7,7 @@ function MainSection(props) {
             <section className="page-left" >
                 <h1>This is my blog</h1>
 
-                    <Posts posts={props.post} click={props.click}/>
+                    <Posts/>
 
             </section>
     );

@@ -1,6 +1,11 @@
 .post-page {
-    padding: 70px 4% 0px 4%;
+    padding: 70px 10% 0px 10%;
+    /*width: 20%;*/
+    /*position: relative;*/
+    /*display: center;*/
+    /*align-items: center;*/
 }
-p {
-    /*color: red;*/
+
+#post-title ,#post-content{
+    text-align: center;
 }

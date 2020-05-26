@@ -8,7 +8,7 @@ function HomePage(props) {
 
     return (
         <div>
-            <MainSection post={props.posts} click={props.click}/>
+            <MainSection/>
             <AsideBar latest={props.latest} popular={props.popular}/>
         </div>
     );

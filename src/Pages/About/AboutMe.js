@@ -12,7 +12,6 @@ function AboutMe(props) {
                 </p>
                 <a className="instagram"
                    href="https://www.instagram.com/stavshimko"
-                   className="instagram social"
                 >
                     <FontAwesomeIcon icon={faInstagram} size="2x" color="black"/>
                 </a>
