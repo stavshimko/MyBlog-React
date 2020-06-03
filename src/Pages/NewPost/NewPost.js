@@ -38,25 +38,25 @@ export default class NewPost extends React.Component {
 
     };
     handleAddPost = (title,content) => {
-        var post = {
-            "titlePost":title,
-            "bodyPost":content
-        }
-        console.log(post)
+        // var post = {
+        //     "titlePost":title,
+        //     "bodyPost":content
+        // }
+        // console.log(post)
         Axios.post('/posts',{
             titlePost:title,
             bodyPost:content
         }).then((res) => {
-            if (res.status===200) {
                 alert("PostPage saved successfully");
                 this.setState({
                     title: null,
                     content: null
                 });
-            }
             // console.log(res.data)
-        })
-        console.log("reset params")
+        }).catch((err) => {
+            alert("Please Login");
+        });
+        // console.log("reset params")
     };
 
     render() {

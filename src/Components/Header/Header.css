@@ -36,21 +36,39 @@
 /*    border-radius: 2px;*/
 
 /*}*/
-
-.right-item {
+.right-item li{
     display: inline-block;
-    text-align: center;
-    padding: 20px 0px 0px 0px;
-    /*top: 0;*/
-    /*float: right;*/
-    /*margin-right: 5px;*/
+    padding: 0px 10px 0px 10px;
 }
 
-.left-items .link,.right-item{
+.right-item {
+    list-style: none;
+    padding: 0px 0px 0px 0px;
+    margin: 20px 0px;
+    float: right;
+    color: white;
+    /*text-decoration-line:;*/
+}
+
+.right-item .linkLogin{
+    /*display: flex;*/
+    /*padding: 0px 10px 0px 10px;*/
     color: white;
     text-decoration-line: none;
 }
 
-.left-items .link:hover,.right-item:hover{
+
+span {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+}
+.left-items .link{
+    color: white;
+    text-decoration-line: none;
+}
+
+.left-items .link:hover,.right-item .linkLogin:hover{
     color: #cbcbcb;
 }
+

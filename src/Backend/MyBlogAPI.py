@@ -1,5 +1,8 @@
-from flask import Flask, request, jsonify,json
+from flask import Flask, request, jsonify,json,abort,make_response
+# from flask_cors import CORS
 import mysql.connector as mysql
+import uuid
+import bcrypt
 
 db = mysql.connect(
 	host = "localhost",
@@ -10,9 +13,80 @@ db = mysql.connect(
 # print(db)
 
 app = Flask(__name__)
+# CORS(app)
+
+@app.route('/login', methods=['POST'])
+def login():
+	data = request.get_json()
+	# return ""
+	query = "select id,pass from users where username = %s"
+	values = (data['username'],)
+	# print(json.dumps(values,default=str))
+	cursor = db.cursor()
+	cursor.execute(query,values)
+	record = cursor.fetchone()
+	if not record:
+		abort(401)
+	user_id = record[0]
+	hashed_pwd = record[1].encode('utf-8')
+	if bcrypt.hashpw(data['pass'].encode('utf-8'),hashed_pwd) != hashed_pwd:
+		abort(401)
+
+	session_id = str(uuid.uuid4())
+	query = "insert into sessions (userId,sessionId) values (%s,%s) on duplicate key update sessionId=%s"
+	values = (user_id, session_id,session_id)
+	cursor.execute(query,values)
+	db.commit()
+	resp = make_response()
+	resp.set_cookie("Session_id",session_id)
+	return resp
+
+@app.route('/signup', methods=['POST'])
+def signup():
+	data = request.get_json()
+	hashpass = bcrypt.hashpw(data['pass'].encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+	values = (data['username'],hashpass)
+	cursor = db.cursor()
+	cursor.callproc('sp_NewUser', values)
+	records = cursor.stored_results()
+	cursor.close()
+	db.commit()
+	return {'Message': 'User signup successfully'}
+
+
+	#role for do somethings about user
+def check_login():
+	session_id = request.cookies.get('Session_id')
+	# print(session_id)
+	if not session_id:
+		abort(401)
+	query = "select userId from sessions where sessionId=%s"
+	values = (str(session_id),)
+	cursor = db.cursor()
+	cursor.execute(query,values)
+	record = cursor.fetchone()
+	# print(record[0])
+	if not record:
+		abort(401)
+	return record[0]
+
+@app.route('/logout', methods=['POST'])
+def logout():
+	userid = check_login()
+	cursor = db.cursor()
+	# print(userid)
+	cursor.callproc('sp_LogoutByUserId',(int(userid),))
+	records = cursor.stored_results()
+	cursor.close()
+	db.commit()
+	resp = make_response()
+	resp.set_cookie("Session_id",'')
+	return resp
+
 
 @app.route('/posts/<id>', methods=['GET'])
 def get_post_by_id(id):
+		# logout_cookie()
 		query = "select idPost,titlePost,bodyPost,createTimeUTC from Post where idPost = %s"
 		value = (id,)
 		cursor = db.cursor()
@@ -41,6 +115,7 @@ def manage_cities():
 
 
 def create_new_post():
+			check_login()
 			post = request.get_json()
 			cursor = db.cursor()
 			cursor.callproc('sp_NewPost', (post['titlePost'],post['bodyPost']))
@@ -86,4 +161,4 @@ def get_all_posts():
 
 
 if __name__ == "__main__":
-	app.run(port=5000,debug = True)
+	app.run(debug = True)

@@ -5,7 +5,7 @@ export default class PostPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            post: [],
+            post: []
         };
     }
 

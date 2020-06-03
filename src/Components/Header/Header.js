@@ -16,8 +16,17 @@ function Header(props) {
                     <li><Link to="/contact" className="link">Contact Me</Link></li>
                 </ul>
                 <div>
-                    {/*{props.user && <span>Hello {props.user}</span>}*/}
-                    {!props.user && <Link className="right-item" to="/login" onClick={props.onLoginClick}>Login</Link>}
+                    {props.logedIn && <span>Hello {props.user}
+                    <button
+                        id="logout"
+                        type="submit"
+                        onClick={props.handleLogout}
+                    >Logout</button></span>}
+                    {!props.logedIn && <ul className="right-item">
+                        <li><Link to="/login" className="linkLogin">Login</Link></li>
+                        <li><Link to="/signup" className="linkLogin">SignUp</Link></li>
+                        </ul>
+                        }
                 </div>
             </header>
         </div>

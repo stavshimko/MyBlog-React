@@ -6,6 +6,7 @@ import './Pages/NewPost/newPost.css';
 import './Pages/PostPage/PostPage.css';
 import './Pages/About/AboutMe.css';
 import './Pages/Contact/ContactMe.css';
+import './Pages/Login/Login.css';
 import './Components/Header/Header.css';
 import './Components/Sidebar/AsideBar.css';
 import './Components/MainSection/MainSection.css';
@@ -16,41 +17,20 @@ import ContactMe from "./Pages/Contact/ContactMe";
 import HomePage from "./Pages/Home/HomePage";
 import PostPage from "./Pages/PostPage/PostPage";
 import NewPost from "./Pages/NewPost/NewPost";
-//import img from './photos/emptyImg.png'
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
 
-// var posts = [
-//     {
-//         id: 1,
-//         title: 'Blog post #1',
-//         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-//         img: img,
-//         published: '3 days ago',
-//         author: 'Stav Shimko'
-//     },
-//     {
-//         id: 2,
-//         title: 'Blog post #2',
-//         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-//         img: '',
-//         published: '2 days ago',
-//         author: 'Stav Shimko'
-//     }
-    // {
-    //     id: 3,
-    //     title: 'Blog post #3',
-    //     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    //     img: '',
-    //     published: '1 days ago',
-    //     author: 'Stav Shimko'
-    // }
-// ]
+import Axios from "axios";
+//import img from './photos/emptyImg.png'
 
 export default class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             "user": null,
-            // "title": null,
+            "pass": null,
+            "resp": null,
+            "logedIn": null
             // "content": null,
             // "image": null,
             // "idPost": null
@@ -58,28 +38,75 @@ export default class App extends React.Component{
 
     }
 
-    onLoginButtonClick = () => {
-        console.log("Click login");
-        this.setState({user: "Stav"});
-
+    handleUser = (event) => {
+        this.setState({
+            user: event.target.value
+        });
+        // console.log(this.state.user)
     }
 
-    // postById = (array, id) => {
-    //     let post = array.find((element) => {
-    //         return element.id == id;
-    //     })
-    //     return post;
-    //
-    // }
+    handlePass = (event) => {
+        this.setState({
+            pass:event.target.value
+        });
+        // console.log(this.state.pass)
+    }
 
+    handleSaveLogin = (event) => {
+        event.preventDefault();
+        const {user,pass} = this.state;
+        // console.log(user + " - " + pass);
+        // const data = {
+        //     user: this.state.user,
+        //     pass: this.state.pass
+        // }
+        Axios.post('/login', {
+            username:user,
+            pass:pass
+        })
+            .then((res) => {
+                this.setState({
+                    pass:null,
+                    resp: "Success: user loged in.",
+                    logedIn: 1
+                });
+                alert(this.state.resp);
+            }).catch((err) => {
+            this.setState({
+                user: null,
+                pass: null,
+                resp: "Error: Failed login.",
+                logedIn: null
+            });
+            alert(this.state.resp);
+        });
+            // console.log(user + "-" + pass)
+
+        // console.log("login")
+    }
+
+    handleLogout = () => {
+        const {user} = this.state;
+        Axios.post('/logout',{}).then((res) => {
+            this.setState({
+                user: null,
+                logedIn: null,
+                resp: "User Logout"
+            });
+            alert(this.state.resp);
+        });
+
+    }
 
     render() {
         return (
 
             <div>
                 <Router>
-                <Header user={this.state.user}
-                        onLoginClick={this.onLoginButtonClick}
+                <Header logedIn={this.state.logedIn}
+                        user={this.state.user}
+                        handleLogout ={this.handleLogout}
+                        // onLoginClick={this.onLogin}
                 />
 
                    <Switch>
@@ -93,6 +120,14 @@ export default class App extends React.Component{
                        <Route path="/post/:postId" component={PostPage}>
                        </Route>
                        <Route path="/newPost" component={NewPost}>
+                       </Route>
+                       <Route path="/login">
+                           <Login handleUser={this.handleUser}
+                                  handlePass={this.handlePass}
+                                  handleSaveLogin={this.handleSaveLogin}
+                           />
+                       </Route>
+                       <Route path="/signup" component={SignUp}>
                        </Route>
                        <Route path="/">
                            <HomePage latest={this.state.latest}
