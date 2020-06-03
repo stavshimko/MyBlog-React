@@ -63,6 +63,19 @@ span {
     text-align: center;
     padding: 20px 0px 0px 0px;
 }
+
+span button {
+    font-size: 16px;
+    color: white;
+    background: none;
+    border: none;
+    margin: 0px 0px 0px 10px;
+}
+
+span button:hover {
+    color: #cbcbcb;
+}
+
 .left-items .link{
     color: white;
     text-decoration-line: none;
