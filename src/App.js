@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 import './App.css';
 import './Pages/NewPost/newPost.css';
@@ -7,6 +8,7 @@ import './Pages/PostPage/PostPage.css';
 import './Pages/About/AboutMe.css';
 import './Pages/Contact/ContactMe.css';
 import './Pages/Login/Login.css';
+import './Pages/SignUp/SIgnUp.css';
 import './Components/Header/Header.css';
 import './Components/Sidebar/AsideBar.css';
 import './Components/MainSection/MainSection.css';
@@ -80,10 +82,18 @@ export default class App extends React.Component{
             });
             alert(this.state.resp);
         });
+
+
+
             // console.log(user + "-" + pass)
 
         // console.log("login")
     }
+    homePage = () => {
+        let history = useHistory();
+        history.push("/");
+    }
+
 
     handleLogout = () => {
         const {user} = this.state;
