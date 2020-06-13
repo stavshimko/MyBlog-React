@@ -7,7 +7,7 @@ import bcrypt
 db = mysql.connect(
 	host = "database-1.ccdlxgoplvyg.us-east-1.rds.amazonaws.com",
 	user = "admin",
-	passwd = "",
+# 	passwd = "",
 	database = "RDS"
 )
 # print(db)
