@@ -1,15 +1,39 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Axios from "axios";
 
 
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //
+            // user: this.props.user,
+            // logedIn: this.props.logedIn
         }
     }
 
+    // userLogin = () => {
+    //     Axios.get('/user').then((res) => {
+    //         if (res.status===200) {
+    //             this.setState({
+    //                 user: res.data,
+    //                 logedIn: 1
+    //             });
+    //         }
+    //         // console.log(res.data)
+    //     }).catch((err) => {
+    //         this.setState({
+    //             user: null,
+    //             logedIn: null
+    //         });
+    //     });
+    // }
+
+
+
+    // componentDidMount() {
+    //     this.props.userLogin()
+    // }
 
     render() {
         return (

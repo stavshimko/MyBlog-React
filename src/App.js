@@ -82,13 +82,8 @@ export default class App extends React.Component{
             });
             alert(this.state.resp);
         });
-
-
-
-            // console.log(user + "-" + pass)
-
-        // console.log("login")
     }
+
     homePage = () => {
         let history = useHistory();
         history.push("/");
@@ -96,16 +91,33 @@ export default class App extends React.Component{
 
 
     handleLogout = () => {
-        const {user} = this.state;
+        // const {user} = this.state;
         Axios.post('/logout',{}).then((res) => {
             this.setState({
                 user: null,
                 logedIn: null,
-                resp: "User Logout"
+                // resp: "User Logout"
             });
-            alert(this.state.resp);
+            alert("User Logout");
         });
 
+    }
+
+    userLogin = () => {
+        Axios.get('/user').then((res) => {
+            if (res.status===200) {
+                this.setState({
+                    user: res.data,
+                    logedIn: 1
+                });
+            }
+            // console.log(res.data)
+        }).catch((err) => {
+            this.setState({
+                user: null,
+                logedIn: null
+            });
+        });
     }
 
     render() {
@@ -116,11 +128,11 @@ export default class App extends React.Component{
                 <Header logedIn={this.state.logedIn}
                         user={this.state.user}
                         handleLogout ={this.handleLogout}
-                        // onLoginClick={this.onLogin}
+                        userLogin={this.userLogin}
                 />
 
                    <Switch>
-                       <Redirect exact from="/" to="/home"></Redirect>
+                       {/*<Redirect exact from="/" to="/home"></Redirect>*/}
                        <Route path="/about">
                            <AboutMe/>
                        </Route>
@@ -135,6 +147,7 @@ export default class App extends React.Component{
                            <Login handleUser={this.handleUser}
                                   handlePass={this.handlePass}
                                   handleSaveLogin={this.handleSaveLogin}
+                                  // handleLogout={this.handleLogout}
                            />
                        </Route>
                        <Route path="/signup" component={SignUp}>

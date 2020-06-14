@@ -4,20 +4,18 @@ import mysql.connector as mysql
 import uuid
 import bcrypt
 
+
 db = mysql.connect(
-	host = "database-1.ccdlxgoplvyg.us-east-1.rds.amazonaws.com",
-	user = "admin",
-	passwd = "fullstack2020",
-	database = "RDS"
+    host = "localhost",
+	user = "root",
+	passwd = "FullStack2020",
+	database = "SafetyCenter"
 )
 # print(db)
 
-app = Flask(__name__, static_folder='../Fronted/build', static_url_path='/')
+app = Flask(__name__)
 # CORS(app)
 
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -61,7 +59,7 @@ def signup():
 	#role for do somethings about user
 def check_login():
 	session_id = request.cookies.get('Session_id')
-# 	print(session_id)
+	# print(session_id)
 	if not session_id:
 		abort(401)
 	query = "select userId from Sessions where sessionId=%s"
@@ -74,18 +72,15 @@ def check_login():
 		abort(401)
 	return record[0]
 
-
-# 	if not session_id:
-# 		abort(401)
-	# cursor = db.cursor()
-    # cursor.callproc('sp_getUserBySessionId',(sessionid,))
- #    records = cursor.stored_results()
- #    cursor.close()
-	# record = cursor.fetchone()
-	# print(record)
-	# if not record:
-	# 	abort(401)
-
+@app.route('/user', methods=['GET'])
+def who_login():
+    session_id = request.cookies.get('Session_id')
+    cursor = db.cursor()
+    query = "select userId from Sessions where sessionId=%s"
+    cursor.execute(query,(str(session_id),))
+    record = cursor.fetchone()
+    cursor.close()
+    return str(record[0])
 
 
 @app.route('/logout', methods=['POST'])
@@ -180,3 +175,7 @@ def get_all_posts():
 
 if __name__ == "__main__":
 	app.run()
+
+
+
+
