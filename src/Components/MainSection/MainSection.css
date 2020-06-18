@@ -1,8 +1,8 @@
 
 section{
     float: left;
-    width: 75%;
-    margin: 3% 0px 0px 4%;
+    width: 100%;
+    margin: 3% 0px 150px 4%;
 }
 /*.page-left {*/
 /*  margin: 50px 0px 0px 0px;*/
@@ -11,13 +11,14 @@ section{
 .page-left .post{
     color: black;
     position: relative;
+    display: inline-flex;
     border: 2px solid black;
     border-radius: 2px;
     padding-left: 5px;
-    margin: 2px 0px 10px 0px;
+    margin: 10px 10px 10px 10px;
     left: 10px;
     height: 200px;
-    width: 90%;
+    width: 20%;
 
 }
 .page-left .post:hover{
@@ -55,8 +56,9 @@ section{
 
 }
 
-.page-left h1{
-    margin-left: 0px;
+.page-left h5{
+    margin: 10px 9% 40px 0px;
+    text-align: center;
 }
 
 /*.cross {*/
@@ -70,3 +72,17 @@ section{
 /*    !*padding: -20px;*!*/
 /*    !*transform: rotate(45deg);*!*/
 /*}*/
+
+#mainNormalFont {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 30px;
+    letter-spacing: 0px;
+    word-spacing: 3px;
+    color: black;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    /*border: 20px;*/
+    /*text-transform: capitalize;*/
+}

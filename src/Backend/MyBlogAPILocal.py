@@ -128,10 +128,10 @@ def manage_cities():
 
 
 def create_new_post():
-			check_login()
+			userId = check_login()
 			post = request.get_json()
 			cursor = db.cursor()
-			cursor.callproc('sp_NewPost', (post['titlePost'],post['bodyPost']))
+			cursor.callproc('sp_NewPost', (post['titlePost'],post['bodyPost'],int(userId))
 			records = cursor.stored_results()
 			cursor.close()
 			db.commit()

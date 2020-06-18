@@ -5,7 +5,7 @@ import Posts from "./Post/Posts";
 function MainSection(props) {
     return (
             <section className="page-left" >
-                <h1>This is my blog</h1>
+                <h5 id="mainNormalFont">WELCOME TO MY ART</h5>
 
                     <Posts/>
 

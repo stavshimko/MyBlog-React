@@ -9,7 +9,7 @@ function HomePage(props) {
     return (
         <div>
             <MainSection/>
-            <AsideBar latest={props.latest} popular={props.popular}/>
+            {/*<AsideBar latest={props.latest} popular={props.popular}/>*/}
         </div>
     );
 }

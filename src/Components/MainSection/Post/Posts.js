@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Axios from "axios";
-// import image from "../../photos/emptyImg.png";
+import image from "../../../photos/emptyImg.png";
 // Axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://localhost:5000'
 
 export default class Posts extends React.Component {
@@ -45,7 +45,7 @@ export default class Posts extends React.Component {
             <Link to={`/post/${props.id}`}>
                 <article className="post">
 
-                    <img className="cross" src={props.image} alt="img"></img>
+                    <img className="cross" src={image} alt="img"></img>
                     {/*<img src={logo} alt="Logo" />*/}
 
                     <h4 className="header-top">{props.title}</h4>

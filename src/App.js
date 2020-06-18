@@ -12,8 +12,10 @@ import './Pages/SignUp/SIgnUp.css';
 import './Components/Header/Header.css';
 import './Components/Sidebar/AsideBar.css';
 import './Components/MainSection/MainSection.css';
+import './Components/Footer/Footer.css';
 
 import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 import AboutMe from "./Pages/About/AboutMe";
 import ContactMe from "./Pages/Contact/ContactMe";
 import HomePage from "./Pages/Home/HomePage";
@@ -130,7 +132,6 @@ export default class App extends React.Component{
                         handleLogout ={this.handleLogout}
                         userLogin={this.userLogin}
                 />
-
                    <Switch>
                        {/*<Redirect exact from="/" to="/home"></Redirect>*/}
                        <Route path="/about">
@@ -156,10 +157,12 @@ export default class App extends React.Component{
                            <HomePage latest={this.state.latest}
                                      popular={this.state.popular}
                            />
+
                        </Route>
                     </Switch>
 
                 </Router>
+            <Footer/>
             </div>
         );
     }

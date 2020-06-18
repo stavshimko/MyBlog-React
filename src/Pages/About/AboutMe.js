@@ -1,6 +1,4 @@
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 
 function AboutMe(props) {
     console.log('run About Me')
@@ -10,11 +8,7 @@ function AboutMe(props) {
                 <p>
                     My Instagram
                 </p>
-                <a className="instagram"
-                   href="https://www.instagram.com/stavshimko"
-                >
-                    <FontAwesomeIcon icon={faInstagram} size="2x" color="black"/>
-                </a>
+
             </div>
 
     );

@@ -39,7 +39,8 @@ export default class Header extends React.Component {
         return (
             <div>
                 <nav className="toolbar">
-                    <ul className="left-items">
+                    <ul  id="headerNormalFont" className="left-items">
+                        <li id="headerIconFont">SSA;</li>
                         <li><Link to="/" className="link">Home</Link></li>
                         {/*/!*<span id="vertical-line"></span>*!/*/}
                         {/*<li><Link to="/newPost" className="link">New Post</Link></li>*/}
@@ -48,10 +49,9 @@ export default class Header extends React.Component {
                         {/*/!*<span id="vertical-line"></span>*!/*/}
                         {/*<li><Link to="/contact" className="link">Contact Me</Link></li>*/}
                     </ul>
-                    <div>
-                        {this.props.logedIn && <span>Hello {this.props.user}
+                    <div id="headerNormalFont">
+                        {this.props.logedIn && <span id="headerNormalFont">Hello {this.props.user}
                             <button
-                                id="logout"
                                 type="submit"
                                 onClick={this.props.handleLogout}
                             >Logout</button></span>}
@@ -64,11 +64,11 @@ export default class Header extends React.Component {
 
                 </nav>
                 <header className="black">
-                    <h1>ART by Stav Shimko ;</h1>
+                    <h1 id="headerFont">STAV SHIMKO ART;</h1>
                 </header>
                 <div className="footer">
-                    <ul className="footer-center">
-                        <li><Link to="/" className="link">My Blog</Link></li>
+                    <ul id="headerNormalFont" className="footer-center">
+                        <li><Link to="/" className="link" >My ART</Link></li>
                         {/*<span id="vertical-line"></span>*/}
                         <li><Link to="/newPost" className="link">New Post</Link></li>
                         {/*<span id="vertical-line"></span>*/}

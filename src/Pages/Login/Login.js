@@ -7,7 +7,7 @@ function Login(props) {
     return (
         <div className="login">
             <form className="new-post">
-                <h2>Login</h2>
+                <h2 id="loginNormalFont">Login</h2>
                 <input
                     id="username"
                     type="text"

@@ -32,6 +32,10 @@
     padding: 0px 10px 0px 10px;
 
 }
+
+.left-items .link:hover{
+    color: #cbcbcb;
+}
 .right-item {
     list-style: none;
     padding: 0px 0px 0px 0px;
@@ -115,14 +119,13 @@ span button:hover {
 }
 
 .footer li{
-    border-right: 1px solid white;
-    border-left: 1px solid white;
+    /*border-right: 1px solid white;*/
+    /*border-left: 1px solid white;*/
     /*position: relative;*/
     /*border: 1px solid white;*/
     /*border-radius: 50px;*/
     display: inline-block;
     padding: 0px 50px 0px 50px;
-    /*justify-items: ;*/
 
 }
 
@@ -145,4 +148,30 @@ header h1 {
     color: white;
     text-align: center;
 
+}
+
+#headerFont {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 45px;
+    letter-spacing: 5.8px;
+    word-spacing: 6px;
+    color: #FFFFFF;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    /*text-transform: capitalize;*/
+}
+
+#headerNormalFont {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    letter-spacing: 5.8px;
+    word-spacing: 6px;
+    color: #FFFFFF;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    /*text-transform: capitalize;*/
 }
