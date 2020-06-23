@@ -13,9 +13,11 @@ import './Components/Header/Header.css';
 import './Components/Sidebar/AsideBar.css';
 import './Components/MainSection/MainSection.css';
 import './Components/Footer/Footer.css';
+import './Components/PhotosFlow/PhotoFlow.css';
 
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import PhotosFlow from "./Components/PhotosFlow/PhotosFlow";
 import AboutMe from "./Pages/About/AboutMe";
 import ContactMe from "./Pages/Contact/ContactMe";
 import HomePage from "./Pages/Home/HomePage";
@@ -153,10 +155,14 @@ export default class App extends React.Component{
                        </Route>
                        <Route path="/signup" component={SignUp}>
                        </Route>
-                       <Route path="/">
+                       <Route path="/blog">
                            <HomePage latest={this.state.latest}
                                      popular={this.state.popular}
                            />
+
+                       </Route>
+                       <Route path="/">
+                           <PhotosFlow/>
 
                        </Route>
                     </Switch>

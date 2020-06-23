@@ -68,10 +68,12 @@ export default class Header extends React.Component {
                 </header>
                 <div className="footer">
                     <ul id="headerNormalFont" className="footer-center">
-                        <li><Link to="/" className="link" >My ART</Link></li>
+                        <li><Link to="/" className="link" >Home</Link></li>
                         {/*<span id="vertical-line"></span>*/}
+                        <li><Link to="/blog" className="link" >My Blog</Link></li>
                         <li><Link to="/newPost" className="link">New Post</Link></li>
                         {/*<span id="vertical-line"></span>*/}
+                        {/*<li><Link to="/flow" className="link">Flow</Link></li>*/}
                         <li><Link to="/about" className="link">About Me</Link></li>
                         {/*<span id="vertical-line"></span>*/}
                         <li><Link to="/contact" className="link">Contact Me</Link></li>

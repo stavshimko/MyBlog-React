@@ -131,21 +131,11 @@ def create_new_post():
 			userId = check_login()
 			post = request.get_json()
 			cursor = db.cursor()
-			cursor.callproc('sp_NewPost', (post['titlePost'],post['bodyPost'],int(userId))
-			records = cursor.stored_results()
+# 			cursor.callproc('sp_NewPost', (post['titlePost'],post['bodyPost'],int(userId))
+# 			records = cursor.stored_results()
 			cursor.close()
-			db.commit()
+# 			db.commit()
 			return {'Message': 'Inserted successfully'}
-			# post = request.get_json()
-			# print(post)
-			# query = "insert into Post(titlePost,bodyPost,createTimeUTC) values (%s,%s,UTC_TIMESTAMP);"
-			# value = (post['titlePost'],post['bodyPost'])
-			# cursor = db.cursor()
-			# cursor.execute(query,value)
-			# record = cursor.fetchone()
-			# cursor.close()
-			# db.commit()
-			# return {'Message': 'Inserted successfully'}
 
 
 def get_all_posts():

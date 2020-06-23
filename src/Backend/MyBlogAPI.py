@@ -15,9 +15,16 @@ db = mysql.connect(
 app = Flask(__name__, static_folder='../Fronted/build', static_url_path='/')
 # CORS(app)
 
+
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
+
+@app.route('/api/alive')
+def api_alive():
+	return "alive"
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -41,6 +48,7 @@ def login():
 	values = (user_id, session_id,session_id)
 	cursor.execute(query,values)
 	db.commit()
+	cursor.close()
 	resp = make_response()
 	resp.set_cookie("Session_id",session_id)
 	return resp
@@ -61,7 +69,7 @@ def signup():
 	#role for do somethings about user
 def check_login():
 	session_id = request.cookies.get('Session_id')
-# 	print(session_id)
+	# print(session_id)
 	if not session_id:
 		abort(401)
 	query = "select userId from Sessions where sessionId=%s"
@@ -69,24 +77,11 @@ def check_login():
 	cursor = db.cursor()
 	cursor.execute(query,values)
 	record = cursor.fetchone()
+	cursor.close()
 	print(record[0])
 	if not record:
 		abort(401)
 	return record[0]
-
-
-# 	if not session_id:
-# 		abort(401)
-	# cursor = db.cursor()
-    # cursor.callproc('sp_getUserBySessionId',(sessionid,))
- #    records = cursor.stored_results()
- #    cursor.close()
-	# record = cursor.fetchone()
-	# print(record)
-	# if not record:
-	# 	abort(401)
-
-
 
 @app.route('/logout', methods=['POST'])
 def logout():
@@ -159,6 +154,8 @@ def get_all_posts():
 		cursor = db.cursor()
 		cursor.execute(query)
 		records = cursor.fetchall()
+		if not records:
+			abort(401)
 		header = ['idPost','titlePost', 'bodyPost','createTimeUTC']
 		for r in records:
 			data.append(dict(zip(header, r)))
@@ -180,3 +177,7 @@ def get_all_posts():
 
 if __name__ == "__main__":
 	app.run()
+
+
+
+
